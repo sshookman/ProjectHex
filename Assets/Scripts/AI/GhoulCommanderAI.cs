@@ -6,7 +6,7 @@ using UnityEngine;
 /// for the game. It directs the Ghouls to move and attack on the 
 /// map.
 /// </summary>
-public class GhoulManager : MonoBehaviour {
+public class GhoulCommanderAI : MonoBehaviour {
 
 	private GameManager gameManager;
 	private Map map;
