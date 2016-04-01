@@ -23,6 +23,10 @@ public class CameraInputController : MonoBehaviour {
         mainCamera = GetComponent<Camera>();
     }
 
+	/// <summary>
+	/// Setter for the target of the camera that the camera will follow
+	/// </summary>
+	/// <param name="target">Target Transform</param>
 	public void SetTarget(Transform target) {
 		this.target = target;
 	}
@@ -65,6 +69,10 @@ public class CameraInputController : MonoBehaviour {
         mainCamera.orthographicSize -= (Input.mouseScrollDelta.y * .10f * zoomSpeed);
     }
 
+	/// <summary>
+	/// Follows the target on the map keeping it centered in the
+	/// camera's viewport
+	/// </summary>
 	private void FollowTarget() {
 		Vector3 position = new Vector3(target.position.x, target.position.y, mainCamera.transform.position.z);
 		mainCamera.transform.position = position;
