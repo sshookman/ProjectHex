@@ -20,6 +20,10 @@ public class AmblerAI : MonoBehaviour, GhoulAI {
         amblerActor = GetComponent<Actor>();
     }
 
+	/// <summary>
+	/// Initiates the Ambler's turn by moving and attacking if
+	/// possible
+	/// </summary>
 	public void Play() {
 		Move();
 		Attack();
