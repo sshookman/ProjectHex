@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This class adds a movement component so the Actor can move around
+/// the map. The range of movement is based on the maxSpeed and the
+/// cost of the tiles being traversed.
+/// </summary>
 public class Movement : MonoBehaviour {
 
 	[Tooltip("Determines the number of tiles that the actor can cross each turn")]
@@ -9,6 +14,9 @@ public class Movement : MonoBehaviour {
 
 	private int speed;
 
+	/// <summary>
+	/// Initializes the speed to the maxSpeed so the Actor can move
+	/// </summary>
 	private void Start () {
 		speed = maxSpeed;
 	}
@@ -39,6 +47,9 @@ public class Movement : MonoBehaviour {
 		return (speed > 0);
 	}
 
+	/// <summary>
+	/// Resets the speed to maxSpeed
+	/// </summary>
 	public void Reset() {
 		speed = maxSpeed;
 	}

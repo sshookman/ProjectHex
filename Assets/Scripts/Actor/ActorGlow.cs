@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Controls a highlight color for actors in the game to indicate damage, attack, or
+/// other actions for an actor.
+/// </summary>
 public class ActorGlow : MonoBehaviour {
 
 	private SpriteRenderer glow;
 	private bool isGlowing;
 	private float glowSpeed;
 	private float glowCount;
-
 	private int totalFlashes;
 	private Color glowColor;
 
+	/// <summary>
+	/// Initializes variables and the SpriteRenderer compenent that is used to display
+	/// the glow for the actor
+	/// </summary>
 	private void Start() {
 		glow = GetComponent<SpriteRenderer>();
 		isGlowing = false;
@@ -18,6 +25,10 @@ public class ActorGlow : MonoBehaviour {
 		totalFlashes = 2;
 	}
 
+	/// <summary>
+	/// If the glow is active the sprite renderer will flash a specified number of times
+	/// before disabling
+	/// </summary>
 	private void FixedUpdate() {
 
 		if (isGlowing) {
@@ -33,6 +44,11 @@ public class ActorGlow : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Initiates a flash with a given color and a number of total flashes
+	/// </summary>
+	/// <param name="color">Color color</param>
+	/// <param name="flashes">Flashes count</param>
 	public void Flash(Color color, int flashes) {
 		glowColor = color;
 		totalFlashes = flashes * 2;

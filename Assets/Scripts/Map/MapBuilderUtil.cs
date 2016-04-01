@@ -85,7 +85,6 @@ public class MapBuilderUtil {
 		return template;
 	}
 
-	//TODO: Spawners, swarms, guards at spawners
 	private static int[,] AddGhoulPlacement(int width, int height, int[,] tiles) {
 
 		int spawnLimit = (width + height) / 20;

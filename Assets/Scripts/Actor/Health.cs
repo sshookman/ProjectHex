@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// This class adds a health compnent to an Actor that allows the Actor to
+/// take damage, heal, and die. It displays a damage count on the screen
+/// when damage is taken.
+/// </summary>
 public class Health : MonoBehaviour {
 
 	[Tooltip("The starting health and maximum health the actor can reach")]
@@ -14,6 +19,10 @@ public class Health : MonoBehaviour {
 	private ActorGlow glow;
 	private int health;
 
+	/// <summary>
+	/// Initializes the components for the Game Manager and the Actor Glow
+	/// and sets the health to the maxHealth value
+	/// </summary>
 	private void Start () {
 		gameManager = GetComponentInParent<GameManager>();
 		glow = GetComponentInChildren<ActorGlow>();
@@ -52,6 +61,10 @@ public class Health : MonoBehaviour {
 		health = (health > maxHealth) ? maxHealth : health;
 	}
 
+	/// <summary>
+	/// Displays the count of damage for a breif time before vanishing
+	/// </summary>
+	/// <param name="hitValue">Hit value</param>
 	private void ShowHitCount(int hitValue) {
 		Vector2 position = transform.position;
 		position.y += 0.5f;
