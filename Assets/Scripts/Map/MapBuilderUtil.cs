@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System;
 
+/// <summary>
+/// Provides static functions to facilitate map building
+/// </summary>
 public class MapBuilderUtil {
 
 	public static int BLOCK = 0;
@@ -85,7 +88,13 @@ public class MapBuilderUtil {
 		return template;
 	}
 
-	//TODO: Spawners, swarms, guards at spawners
+	/// <summary>
+	/// Adds areas on the map where ghouls can be placed
+	/// </summary>
+	/// <returns>The ghoul placement int array</returns>
+	/// <param name="width">Width int</param>
+	/// <param name="height">Height int</param>
+	/// <param name="tiles">Tiles int array</param>
 	private static int[,] AddGhoulPlacement(int width, int height, int[,] tiles) {
 
 		int spawnLimit = (width + height) / 20;

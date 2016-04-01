@@ -7,7 +7,7 @@ using System.Collections.Generic;
 /// </summary>
 public class GameManager : MonoBehaviour {
 
-	private GhoulManager ghoulManager;
+	private GhoulCommanderAI ghoulCommanderAI;
 	private GameState currentState;
 	private List<Actor> ghouls;
 	private List<Actor> spawners;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	/// the list of Ghouls and Humans. 
 	/// </summary>
 	private void Start() {
-		ghoulManager = GetComponent<GhoulManager>();
+		ghoulCommanderAI = GetComponent<GhoulCommanderAI>();
 		currentState = GameState.LOADING;
 		ghouls = new List<Actor>();
 		spawners = new List<Actor>();
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
             currentState = state;
             switch (state) {
 				case GameState.GHOUL_TURN:
-					ghoulManager.StartGhoulTurn();
+					ghoulCommanderAI.StartGhoulTurn();
 					return;
                 default:
                     return;

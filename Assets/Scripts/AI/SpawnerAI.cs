@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// This scripts handles the behavior of the Spawner Actors which
+/// generates a specified number of ghouls on the map before disappearing.
+/// </summary>
 public class SpawnerAI : MonoBehaviour, GhoulAI {
 
 	[Tooltip("The different ghoul prefabs that this spawner can spawn")]
@@ -9,14 +13,25 @@ public class SpawnerAI : MonoBehaviour, GhoulAI {
 	private GameManager gameManager;
 	private int remainingGhouls;
 
+	/// <summary>
+	/// Initializes the Game Manager
+	/// </summary>
 	private void Start () {
 		gameManager = GetComponentInParent<GameManager>();
 	}
 
+	/// <summary>
+	/// Initiates the Spawner's turn by generating a new ghoul
+	/// on the map
+	/// </summary>
 	public void Play() {
 		Spawn();
 	}
 
+	/// <summary>
+	/// Spawns a new ghoul on the map on a tile next to the Spawner
+	/// Actor
+	/// </summary>
 	private void Spawn() {
 
 		Tile tile = GetComponentInParent<Tile>();
