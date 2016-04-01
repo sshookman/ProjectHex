@@ -11,6 +11,7 @@ public class Actor : MonoBehaviour {
     public int defense;
     [Tooltip("The display image/sprite used in the HUD")]
 	public Sprite displayImage;
+	[Tooltip("The name of the actor")]
 	public string actorName;
 
 	private Health health;
@@ -26,14 +27,26 @@ public class Actor : MonoBehaviour {
 		attack = GetComponent<Attack>();
     }
 
+	/// <summary>
+	/// Getter for the actor's health component
+	/// </summary>
+	/// <returns>The health component</returns>
 	public Health GetHealth() {
 		return health;
 	}
 
+	/// <summary>
+	/// Getter for the actor's movement component
+	/// </summary>
+	/// <returns>The movement component</returns>
 	public Movement GetMovement() {
 		return movement;
 	}
 
+	/// <summary>
+	/// Getter for the actor's attack component
+	/// </summary>
+	/// <returns>The attack component</returns>
 	public Attack GetAttack() {
 		return attack;
 	}

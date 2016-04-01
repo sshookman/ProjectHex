@@ -2,6 +2,11 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/// <summary>
+/// Smoothly changes the color of an Image at a given rate of speed.
+/// This will cycle through all of the primary colors before looping
+/// back again.
+/// </summary>
 public class ColorTransition : MonoBehaviour {
 
 	[Tooltip("The speed at which the color will change")]
@@ -17,6 +22,9 @@ public class ColorTransition : MonoBehaviour {
 	private float blueSpeed;
 	private float speedMultiplier;
 
+	/// <summary>
+	/// Initialies the Image component, color, and speed values
+	/// </summary>
 	void Start () {
 		image = GetComponent<Image>();
 		red = 1f;
@@ -25,6 +33,10 @@ public class ColorTransition : MonoBehaviour {
 		speedMultiplier = 0.001f;
 	}
 
+	/// <summary>
+	/// Transitions through all of the primary colors by a given
+	/// rate
+	/// </summary>
 	void Update () {
 
 		image.color = new Color(red, green, blue);

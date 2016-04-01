@@ -2,11 +2,11 @@
 using UnityEngine;
 
 /// <summary>
-/// This script acts as a high level AI to manage the Ghoul Turn 
-/// for the game. It directs the Ghouls to move and attack on the 
-/// map.
+/// This script acts as a high level AI to manage the ghoul turn 
+/// for the game. It initiates the Play action for all ghouls on
+/// the map one-by-one.
 /// </summary>
-public class GhoulManager : MonoBehaviour {
+public class GhoulCommanderAI : MonoBehaviour {
 
 	private GameManager gameManager;
 	private Map map;
@@ -27,6 +27,10 @@ public class GhoulManager : MonoBehaviour {
 		cameraInputController = GetComponentInChildren<CameraInputController>();
 	}
 
+	/// <summary>
+	/// Iterates through the list of ghouls and spawners to initiate the Play
+	/// action on each. Player inputs are disabled during the ghoul turn.
+	/// </summary>
 	private void Update() {
 		if (isGhoulTurn) {
 			timer += Time.deltaTime;

@@ -66,10 +66,21 @@ public class Map : MonoBehaviour {
         }
     }
 
+	/// <summary>
+	/// Check if the given x and y coordinates fall within the bounds of the map
+	/// </summary>
+	/// <returns><c>true</c> if this instance has tile the specified x y; otherwise, <c>false</c>.</returns>
+	/// <param name="x">The x coordinate</param>
+	/// <param name="y">The y coordinate</param>
 	public bool HasTile(int x, int y) {
 		return (x >= 0 && x < width && y >= 0 && y < height);
 	}
 
+	/// <summary>
+	/// Check if the given Vector2 coordinate falls within the bounds of the map
+	/// </summary>
+	/// <returns><c>true</c> if this instance has tile the specified coord; otherwise, <c>false</c>.</returns>
+	/// <param name="coord">Coordinate Vector2</param>
 	public bool HasTile(Vector2 coord) {
 		return HasTile((int)coord.x, (int)coord.y);
 	}
