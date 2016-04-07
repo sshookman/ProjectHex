@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// This script provides properties for an actor such as health, speed, defense, weapons, 
@@ -17,6 +18,7 @@ public class Actor : MonoBehaviour {
 	private Health health;
 	private Movement movement;
 	private Attack attack;
+	private AbstractSkill[] skills;
 
     /// <summary>
     /// Initializes the Actor with a name and maxHealth
@@ -25,6 +27,7 @@ public class Actor : MonoBehaviour {
 		health = GetComponent<Health>();
 		movement = GetComponent<Movement>();
 		attack = GetComponent<Attack>();
+		skills = GetComponents<AbstractSkill>();
     }
 
 	/// <summary>
@@ -51,12 +54,26 @@ public class Actor : MonoBehaviour {
 		return attack;
 	}
 
+	/// <summary>
+	/// Getter for the actor's skills
+	/// </summary>
+	/// <returns>List of Skills</returns>
+	public AbstractSkill[] GetSkills() {
+		return skills;
+	}
+
     /// <summary>
     /// Check to see if the actor is Skill Ready
     /// </summary>
     /// <returns>bool - Is Skill Ready</returns>
     public bool IsSkillReady() {
-        return false;
+		foreach (AbstractSkill skill in skills) {
+			if (!skill.IsReady()) {
+				return false;
+			}
+		}
+
+		return true;
     }
 
     /// <summary>
