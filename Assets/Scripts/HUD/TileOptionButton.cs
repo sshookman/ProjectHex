@@ -25,17 +25,17 @@ public class TileOptionButton : MonoBehaviour {
 
         switch (newstate) {
             case MapState.MOVEMENT:
-				if (actor.GetMovement().IsReady()) {
+				if (actor.GetMovement() && actor.GetMovement().IsReady()) {
                     EnableButton();
                 }
                 return;
             case MapState.ATTACK:
-				if (actor.GetAttack().IsReady()) {
+				if (actor.GetAttack() && actor.GetAttack().IsReady()) {
                     EnableButton();
                 }
                 return;
             case MapState.SKILL:
-                if (actor.IsSkillReady()) {
+				if (actor.GetSkills() && actor.GetSkills().IsReady()) {
                     EnableButton();
                 }
                 return;

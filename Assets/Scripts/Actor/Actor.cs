@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections.Generic;
 
 /// <summary>
 /// This script provides properties for an actor such as health, speed, defense, weapons, 
@@ -18,7 +17,7 @@ public class Actor : MonoBehaviour {
 	private Health health;
 	private Movement movement;
 	private Attack attack;
-	private AbstractSkill[] skills;
+	private Skills skills;
 
     /// <summary>
     /// Initializes the Actor with a name and maxHealth
@@ -27,7 +26,7 @@ public class Actor : MonoBehaviour {
 		health = GetComponent<Health>();
 		movement = GetComponent<Movement>();
 		attack = GetComponent<Attack>();
-		skills = GetComponents<AbstractSkill>();
+		skills = GetComponent<Skills>();
     }
 
 	/// <summary>
@@ -57,31 +56,19 @@ public class Actor : MonoBehaviour {
 	/// <summary>
 	/// Getter for the actor's skills
 	/// </summary>
-	/// <returns>List of Skills</returns>
-	public AbstractSkill[] GetSkills() {
+	/// <returns>Skills</returns>
+	public Skills GetSkills() {
 		return skills;
 	}
-
-    /// <summary>
-    /// Check to see if the actor is Skill Ready
-    /// </summary>
-    /// <returns>bool - Is Skill Ready</returns>
-    public bool IsSkillReady() {
-		foreach (AbstractSkill skill in skills) {
-			if (!skill.IsReady()) {
-				return false;
-			}
-		}
-
-		return true;
-    }
 
     /// <summary>
     /// Check to see if the actor has any options (Move, Attack, Skill)
     /// </summary>
     /// <returns>bool - has options</returns>
     public bool HasOptions() {
-		return (movement.IsReady() || attack.IsReady() || IsSkillReady());
+		return ((movement && movement.IsReady())
+			|| (attack && attack.IsReady())
+			|| (skills && skills.IsReady()));
     }
 
     /// <summary>
@@ -109,6 +96,9 @@ public class Actor : MonoBehaviour {
 		}
 		if (attack) {
 			attack.Reset();
+		}
+		if (skills) {
+			skills.Reset();
 		}
     }
 

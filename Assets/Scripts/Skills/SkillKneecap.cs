@@ -6,10 +6,6 @@
 /// </summary>
 public class SkillKneecap : AbstractSkill {
 
-	private string skillName;
-	private int cost;
-	private bool isReady;
-
 	/// <summary>
 	/// Initializes the actor component that is the
 	/// owner of the skill

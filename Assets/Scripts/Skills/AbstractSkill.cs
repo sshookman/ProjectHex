@@ -2,9 +2,9 @@
 
 public class AbstractSkill : MonoBehaviour {
 
-	private string skillName;
-	private int cost;
-	private bool isReady;
+	protected string skillName;
+	protected int cost;
+	protected bool isReady;
 
 	/// <summary>
 	/// Getter for the name of the skill
