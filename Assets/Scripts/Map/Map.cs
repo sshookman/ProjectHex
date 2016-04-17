@@ -302,6 +302,10 @@ public class Map : MonoBehaviour {
     /// can be selected
     /// </summary>
     private void ResetTiles() {
+		if (HasSelectedActor()) {
+			GetSelectedActor().Reset();
+		}
+
         Tile[] allTiles = GetComponentsInChildren<Tile>();
         selected = new Vector2(-1, -1);
 

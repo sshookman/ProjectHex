@@ -68,6 +68,7 @@ public class Skills : MonoBehaviour {
 	/// Resets all of the skills
 	/// </summary>
 	public void Reset() {
+		HideSkills();
 		if (skills != null || !skills.Length.Equals(0)) {
 			foreach (AbstractSkill skill in skills) {
 				skill.Reset();
