@@ -119,6 +119,11 @@ public class Map : MonoBehaviour {
                     BuildReachableTiles(maxWeaponRange, true);
                     SetReachableTileState(minWeaponRange, TileState.ATTACKABLE);
                     return;
+				case MapState.SKILL:
+					if (HasSelectedActor()) {
+						GetSelectedActor().GetSkills().ShowSkills();
+					}
+					return;
                 default:
                     return;
             }
