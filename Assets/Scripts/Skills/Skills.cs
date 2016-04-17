@@ -45,7 +45,8 @@ public class Skills : MonoBehaviour {
 			skillButtons = (GameObject) Instantiate(skillButtonsPrefab, transform.position, transform.rotation);
 			skillButtons.transform.SetParent(transform);
 
-			Vector3 placementPosition = new Vector3(-0.5f, 1f);
+			Vector3 placementPosition = transform.position;
+			placementPosition.Set(placementPosition.x + 1, placementPosition.y + 1, placementPosition.z);
 			foreach (AbstractSkill skill in skills) {
 				GameObject floatingButton = (GameObject) Instantiate(floatingButtonPrefab, placementPosition, transform.rotation);
 				floatingButton.transform.SetParent(skillButtons.transform);

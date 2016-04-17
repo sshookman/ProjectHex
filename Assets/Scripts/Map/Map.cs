@@ -121,6 +121,7 @@ public class Map : MonoBehaviour {
                     return;
 				case MapState.SKILL:
 					if (HasSelectedActor()) {
+						//TODO: SEAN - Hide attack, skill, movement buttons
 						GetSelectedActor().GetSkills().ShowSkills();
 					}
 					return;
