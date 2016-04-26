@@ -119,11 +119,30 @@ public class Map : MonoBehaviour {
                     BuildReachableTiles(maxWeaponRange, true);
                     SetReachableTileState(minWeaponRange, TileState.ATTACKABLE);
                     return;
+				case MapState.SKILL:
+					if (HasSelectedActor()) {
+						//TODO: This makes more sense: GetSelectedActor().GetTileOptions().Hide();
+						Tile tile = GetSelectedTile();
+						tile.HideTileOptions();
+						tile.GetActor().GetSkills().ShowSkills();
+					}
+					return;
                 default:
                     return;
             }
         }
     }
+
+	/// <summary>
+	/// Getter for the currently selected tile in the map
+	/// </summary>
+	/// <returns>The selected tile</returns>
+	private Tile GetSelectedTile() {
+		if (selected.x != -1 && selected.y != -1) {
+			return tiles[(int)selected.x, (int)selected.y].GetComponent<Tile>();
+		}
+		return null;
+	}
 
     /// <summary>
     /// Getter for the Actor on the selected tile in the map
@@ -297,6 +316,10 @@ public class Map : MonoBehaviour {
     /// can be selected
     /// </summary>
     private void ResetTiles() {
+		if (HasSelectedActor()) {
+			GetSelectedActor().Reset();
+		}
+
         Tile[] allTiles = GetComponentsInChildren<Tile>();
         selected = new Vector2(-1, -1);
 
