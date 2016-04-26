@@ -269,6 +269,13 @@ public class Tile : MonoBehaviour {
             }
         }
     }
+
+	/// <summary>
+	/// Hides the tile options for the selected Actor
+	/// </summary>
+	public void HideTileOptions() {
+		Destroy(tileOptions);
+	}
     
 	/// <summary>
 	/// Attacks the actor on the tile with the selected actor
